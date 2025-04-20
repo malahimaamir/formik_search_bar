@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 const Home = () => {
   const [searchResults, setSearchResults] = useState<Product[]>([]);
@@ -34,7 +36,6 @@ const Home = () => {
         const res = await axios.get(
           `https://dummyjson.com/products/search?q=${values.search}`
         );
-
         setSearchResults(res.data.products);
         setHasSearched(true);
         toast.success(
@@ -48,9 +49,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="min-h-screen p-6 bg-gray-100">
-        <div className="max-w-5xl mx-auto bg-white p-6 rounded shadow-md">
-          <h1 className="text-2xl font-bold mb-4 text-blue-600 text-center">
+      <Navbar />
+      <div className="min-h-screen p-6 bg-gradient-to-br from-blue-900 via-blue-500 to-blue-900 dark:from-blue-500 dark:via-blue-900 dark:to-blue-900 transition-colors duration-500">
+      <div className="max-w-5xl mx-auto bg-white/80 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg transition">
+      <h1 className="text-2xl font-bold mb-4 text-blue-600 text-center">
             Product Search
           </h1>
 
@@ -65,9 +67,9 @@ const Home = () => {
             />
             <button
               type="submit"
-              className="mt-2 w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+              className="mt-2 w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-2 rounded hover:opacity-90 transition"
             >
-              Search
+              🔍 Search Products
             </button>
           </form>
 
@@ -153,6 +155,7 @@ const Home = () => {
 
         <Toaster position="top-center" />
       </div>
+      <Footer />
     </>
   );
 };
