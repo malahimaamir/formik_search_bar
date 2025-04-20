@@ -1,7 +1,6 @@
 "use client";
-
 import { useFormik } from "formik";
-import { useGetProductsQuery } from "./services/productsApi";
+import { Product } from "./types";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import toast, { Toaster } from "react-hot-toast";
@@ -9,8 +8,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Home = () => {
-  const { isLoading, error } = useGetProductsQuery();
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
 
   const preloadImage = (src: string) => {
@@ -20,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     if (searchResults.length > 0) {
-      searchResults.forEach((product: any) => {
+      searchResults.forEach((product: Product) => {
         preloadImage(product.thumbnail);
         product.images.forEach((image: string) => preloadImage(image));
       });
@@ -36,12 +34,13 @@ const Home = () => {
         const res = await axios.get(
           `https://dummyjson.com/products/search?q=${values.search}`
         );
+
         setSearchResults(res.data.products);
         setHasSearched(true);
         toast.success(
           `Found ${res.data.products.length} result(s) for "${values.search}"`
         );
-      } catch (error) {
+      } catch {
         toast.error("Failed to fetch product. Try again.");
       }
     },
@@ -84,13 +83,9 @@ const Home = () => {
 
           {hasSearched && (
             <>
-              {isLoading ? (
-                <p>Loading...</p>
-              ) : error ? (
-                <p className="text-red-500">Error loading products.</p>
-              ) : searchResults.length > 0 ? (
+              {searchResults.length > 0 ? (
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  {searchResults.map((product: any) => (
+                  {searchResults.map((product: Product) => (
                     <li
                       key={product.id}
                       className="border rounded p-4 shadow bg-gray-50"
