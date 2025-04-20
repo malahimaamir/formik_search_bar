@@ -51,7 +51,7 @@ const Home = () => {
     <>
       <Navbar />
       <div className="min-h-screen p-6 bg-gradient-to-br from-blue-900 via-blue-500 to-blue-900 dark:from-blue-500 dark:via-blue-900 dark:to-blue-900 transition-colors duration-500">
-      <div className="max-w-5xl mx-auto bg-white/80 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg transition">
+      <div className="max-w-5xl mx-auto bg-blue-300 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg transition">
       <h1 className="text-2xl font-bold mb-4 text-blue-600 text-center">
             Product Search
           </h1>
