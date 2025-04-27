@@ -1,55 +1,57 @@
 "use client";
-import { useFormik } from "formik";
-import { Product } from "./types";
-import axios from "axios";
-import React, { useState, useEffect } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// import { useFormik } from "formik";
+// import { Product } from "./types";
+// import axios from "axios";
+// import React, { useState, useEffect } from "react";
+// import toast, { Toaster } from "react-hot-toast";
+// import { LazyLoadImage } from "react-lazy-load-image-component";
+// import "react-lazy-load-image-component/src/effects/blur.css";
+// import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
+import Code from "./components/Code"
 
 const Home = () => {
-  const [searchResults, setSearchResults] = useState<Product[]>([]);
-  const [hasSearched, setHasSearched] = useState(false);
+  // const [searchResults, setSearchResults] = useState<Product[]>([]);
+  // const [hasSearched, setHasSearched] = useState(false);
+  
+  // const preloadImage = (src: string) => {
+  //   const img = new Image();
+  //   img.src = src;
+  // };
 
-  const preloadImage = (src: string) => {
-    const img = new Image();
-    img.src = src;
-  };
+  // useEffect(() => {
+  //   if (searchResults.length > 0) {
+  //     searchResults.forEach((product: Product) => {
+  //       preloadImage(product.thumbnail);
+  //       product.images.forEach((image: string) => preloadImage(image));
+  //     });
+  //   }
+  // }, [searchResults]);
 
-  useEffect(() => {
-    if (searchResults.length > 0) {
-      searchResults.forEach((product: Product) => {
-        preloadImage(product.thumbnail);
-        product.images.forEach((image: string) => preloadImage(image));
-      });
-    }
-  }, [searchResults]);
-
-  const formik = useFormik({
-    initialValues: {
-      search: "",
-    },
-    onSubmit: async (values) => {
-      try {
-        const res = await axios.get(
-          `https://dummyjson.com/products/search?q=${values.search}`
-        );
-        setSearchResults(res.data.products);
-        setHasSearched(true);
-        toast.success(
-          `Found ${res.data.products.length} result(s) for "${values.search}"`
-        );
-      } catch {
-        toast.error("Failed to fetch product. Try again.");
-      }
-    },
-  });
+  // const formik = useFormik({
+  //   initialValues: {
+  //     search: "",
+  //   },
+  //   onSubmit: async (values) => {
+  //     try {
+  //       const res = await axios.get(
+  //         `https://dummyjson.com/products/search?q=${values.search}`
+  //       );
+  //       setSearchResults(res.data.products);
+  //       setHasSearched(true);
+  //       toast.success(
+  //         `Found ${res.data.products.length} result(s) for "${values.search}"`
+  //       );
+  //     } catch {
+  //       toast.error("Failed to fetch product. Try again.");
+  //     }
+  //   },
+  // });
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar />
+      
       <div className="min-h-screen p-6 bg-gradient-to-br from-blue-900 via-blue-500 to-blue-900 dark:from-blue-500 dark:via-blue-900 dark:to-blue-900 transition-colors duration-500">
       <div className="max-w-5xl mx-auto bg-blue-300 dark:bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-lg transition">
       <h1 className="text-2xl font-bold mb-4 text-blue-600 text-center">
@@ -127,6 +129,8 @@ const Home = () => {
                           <strong>Rating:</strong> ⭐ {product.rating}
                         </p>
                       </div>
+                   <div className="font-sans via-sky-700 " >data has been fetched</div>
+
 
                       <div className="mt-3">
                         <p className="font-semibold text-sm mb-1">Gallery:</p>
@@ -155,7 +159,9 @@ const Home = () => {
 
         <Toaster position="top-center" />
       </div>
-      <Footer />
+      <Footer /> */}
+<Code/>
+
     </>
   );
 };

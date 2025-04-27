@@ -1,0 +1,215 @@
+// @primary-color: #3498db;
+// @secondary-color: #2ecc71;
+// @font-stack: 'Segoe UI', sans-serif;
+
+// \$primary-color: #3498db;
+// \$secondary-color: #2ecc71;
+// \$font-stack: 'Segoe UI', sans-serif;
+
+// .border-radius(@radius) {
+// border-radius: @radius;
+// }
+
+// @mixin border-radius(\$radius) {
+// border-radius: \$radius;
+// }
+
+// @darken-color: darken(@primary-color, 10%);
+
+// \$darken-color: darken(\$primary-color, 10%);
+
+// body {
+// font-family: @font-stack; // LESS
+// font-family: \$font-stack; // SASS
+// background-color: @primary-color;
+// background-color: \$primary-color;
+// color: white;
+// padding: 20px;
+// }
+
+// nav {
+// background-color: @secondary-color;
+// background-color: \$secondary-color;
+// ul {
+// list-style: none;
+// li {
+// display: inline-block;
+// padding: 10px;
+// a {
+// color: white;
+// text-decoration: none;
+// &\:hover {
+// color: black;
+// }
+// }
+// }
+// }
+// }
+
+// .card {
+// width: 300px;
+// height: 200px;
+// padding: 15px;
+// background: lighten(@primary-color, 10%);
+// background: lighten(\$primary-color, 10%);
+// .border-radius(10px); // LESS
+// @include border-radius(10px); // SASS
+// }
+
+// .generate-columns(@i) when (@i > 0) {
+// .col-@{i} {
+// width: (100% / 12) \* @i;
+// }
+// .generate-columns(@i - 1);
+// }
+// .generate-columns(12);
+
+// @for \$i from 1 through 12 {
+// .col-#{\$i} {
+// width: (100% / 12) \* \$i;
+// }
+// }
+
+// .button(@type) when (@type = primary) {
+// background-color: @primary-color;
+// }
+// .button(@type) when (@type = secondary) {
+// background-color: @secondary-color;
+// }
+// .btn-primary {
+// .button(primary);
+// }
+// .btn-secondary {
+// .button(secondary);
+// }
+
+// @mixin button(\$type) {
+// @if \$type == primary {
+// background-color: \$primary-color;
+// } @else if \$type == secondary {
+// background-color: \$secondary-color;
+// }
+// }
+// .btn-sass-primary {
+// @include button(primary);
+// }
+// .btn-sass-secondary {
+// @include button(secondary);
+// }
+
+// .base-box {
+// padding: 20px;
+// border: 1px solid gray;
+// }
+
+// .alert-box {
+// &\:extend(.base-box);
+// background: #ffe;
+// }
+
+// .alert-box-sass {
+// @extend .base-box;
+// background: #eef;
+// }
+
+// @media (max-width: 768px) {
+// .responsive-box {
+// width: 100%;
+// background: fade(@primary-color, 50%);
+// background: rgba(\$primary-color, 0.5);
+// }
+// }
+
+// @keyframes spin {
+// 0%   { transform: rotate(0deg); }
+// 100% { transform: rotate(360deg); }
+// }
+
+// .loader {
+// animation: spin 2s linear infinite;
+// width: 50px;
+// height: 50px;
+// border: 5px solid lighten(@primary-color, 30%);
+// border-top: 5px solid @secondary-color;
+// border: 5px solid lighten(\$primary-color, 30%);
+// border-top: 5px solid \$secondary-color;
+// border-radius: 50%;
+// }
+
+// .grid {
+// display: flex;
+// flex-wrap: wrap;
+
+// > .item {
+// > flex: 1 1 200px;
+// > margin: 10px;
+// > padding: 20px;
+// > background: lighten(@secondary-color, 10%);
+// > background: lighten(\$secondary-color, 10%);
+// > }
+// > }
+
+// .button-basic {
+// padding: 10px 20px;
+// border: none;
+// color: white;
+// cursor: pointer;
+
+// &.primary {
+// background: @primary-color;
+// background: \$primary-color;
+// }
+
+// &.secondary {
+// background: @secondary-color;
+// background: \$secondary-color;
+// }
+
+// &\:hover {
+// opacity: 0.9;
+// }
+// }
+
+// form {
+// input,
+// textarea {
+// padding: 10px;
+// border: 1px solid #ccc;
+// margin-bottom: 10px;
+// font-family: @font-stack;
+// font-family: \$font-stack;
+// }
+
+// button {
+// @include border-radius(5px);
+// .border-radius(5px);
+// }
+// }
+
+// .text-center {
+// text-align: center;
+// }
+// .text-uppercase {
+// text-transform: uppercase;
+// }
+// .font-lg {
+// font-size: 1.5rem;
+// }
+
+// footer {
+// background: darken(@primary-color, 10%);
+// background: darken(\$primary-color, 10%);
+// color: white;
+// padding: 20px;
+// text-align: center;
+// }
+
+// Responsive screen:
+//
+// large screen
+// @media (max-width: 480px) {
+// footer{
+// font-size:80px
+// }
+// 
+//  }
