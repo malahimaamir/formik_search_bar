@@ -1,7 +1,8 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+const nextConfig = {
+  images: {
+    domains: ['cdn-icons-png.flaticon.com', 'i.dummyjson.com', 'cdn.dummyjson.com'],
+    unoptimized: true,
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

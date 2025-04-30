@@ -8,7 +8,10 @@
 // import "react-lazy-load-image-component/src/effects/blur.css";
 // import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
-import Code from "./components/Code"
+// import Code from "./components/Code"
+// import Practice from "./components/practice"
+// import Change from "./components/Change"
+import Website from "./components/Website"
 
 const Home = () => {
   // const [searchResults, setSearchResults] = useState<Product[]>([]);
@@ -160,8 +163,10 @@ const Home = () => {
         <Toaster position="top-center" />
       </div>
       <Footer /> */}
-<Code/>
-
+{/* <Code/> */}
+{/* <Practice/> */}
+{/* <Change/> */}
+<Website/>
     </>
   );
 };
